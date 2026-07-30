@@ -439,7 +439,7 @@ export default function Home() {
   <div className="education-year">2019</div>
 
   <div className="education-main">
-    <span className="university-chip">KST</span>
+    <span className="university-chip">KN</span>
 
     <div>
       <h3>
@@ -471,7 +471,7 @@ export default function Home() {
   <div className="education-year">2016</div>
 
   <div className="education-main">
-    <span className="university-chip">KST</span>
+    <span className="university-chip">KN</span>
 
     <div>
       <h3>

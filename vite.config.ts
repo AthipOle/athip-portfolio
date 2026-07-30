@@ -2,6 +2,8 @@ import vinext from "vinext";
 import { defineConfig } from "vite";
 import hostingConfig from "./.openai/hosting.json";
 import { sites } from "./build/sites-vite-plugin";
+import { cdnAdapter } from "@vinext/cloudflare/cache/cdn-adapter";
+import { cloudflare } from "@cloudflare/vite-plugin";
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   "00000000-0000-4000-8000-000000000000";
@@ -52,7 +54,10 @@ export default defineConfig(async () => {
         : {}),
     },
     plugins: [
-      vinext(),
+      vinext({
+        cache: { cdn: cdnAdapter() },
+        prerender: { routes: "*" },
+      }),
       sites(),
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
