@@ -1,0 +1,659 @@
+"use client";
+
+import { useState } from "react";
+
+type Language = "th" | "en";
+
+const copy = {
+  th: {
+    nav: {
+      about: "เกี่ยวกับผม",
+      education: "การศึกษา",
+      skills: "ทักษะ",
+      projects: "โปรเจกต์",
+      award: "รางวัล",
+      contact: "ติดต่อ",
+    },
+    heroEyebrow: "สวัสดีครับ ผมโอเล่",
+    role: "Computer Science Student",
+    target: "กำลังมองหาโอกาสสหกิจในตำแหน่ง Software Tester (QA) Intern",
+    intro:
+      "นักศึกษาสาขาวิทยาการคอมพิวเตอร์ที่สนใจงานด้าน Software Testing และ Quality Assurance มีความละเอียดรอบคอบ ชอบวิเคราะห์การทำงานของเว็บไซต์และแอปพลิเคชันเพื่อค้นหาข้อผิดพลาด พร้อมเรียนรู้การเขียน Test Case การรายงาน Bug การทดสอบ API และกระบวนการพัฒนาซอฟต์แวร์จากประสบการณ์ทำงานจริง",
+    viewProjects: "ดูผลงาน",
+    contactMe: "ติดต่อผม",
+    openToWork: "OPEN TO CO-OP",
+    statProjects: "โปรเจกต์เด่น",
+    statAward: "รางวัลด้าน AI",
+    statGpa: "GPA",
+    aboutLabel: "ABOUT ME",
+    aboutTitle: "รู้จักผมให้มากขึ้น",
+    aboutBody:
+      "ผมสนใจงานด้านการทดสอบซอฟต์แวร์ ชอบทดลองใช้งานเว็บไซต์และแอปพลิเคชันเพื่อค้นหาจุดที่ผิดพลาด รวมถึงสนใจเรียนรู้เครื่องมือใหม่ ๆ เช่น Postman และ SQL ผมต้องการเริ่มต้นในสาย Software Testing และ Quality Assurance เพื่อพัฒนาทักษะจากการทำงานจริง และต่อยอดสู่การเป็น Software Tester ที่มีคุณภาพในอนาคต",
+    strengthsTitle: "จุดแข็ง",
+    strengths: [
+      "ละเอียดรอบคอบและช่างสังเกต",
+      "คิดวิเคราะห์และแก้ปัญหาอย่างเป็นขั้นตอน",
+      "รับผิดชอบต่องานที่ได้รับมอบหมาย",
+      "เปิดรับคำแนะนำและพร้อมเรียนรู้สิ่งใหม่",
+      "อ่านเอกสารทางเทคนิคภาษาอังกฤษได้",
+    ],
+    educationLabel: "EDUCATION",
+    educationTitle: "ประวัติการศึกษา",
+    degree: "วิทยาศาสตรบัณฑิต สาขาวิทยาการคอมพิวเตอร์",
+    faculty: "คณะ เทคโนโลยีสารสนเทศและนวัตกรรม",
+    university: "มหาวิทยาลัยกรุงเทพ",
+    studyYear: "2023 — 2027 (คาดว่าจะสำเร็จการศึกษา)",
+    skillsLabel: "TECHNICAL SKILLS",
+    skillsTitle: "ทักษะและเครื่องมือ",
+    basic: "พื้นฐาน",
+    intermediate: "ปานกลาง",
+    projectsLabel: "SELECTED PROJECTS",
+    projectsTitle: "ผลงานที่คัดสรร",
+    projectsLead:
+      "โปรเจกต์ที่สะท้อนทักษะด้านการพัฒนา การทดสอบระบบ การทำงานร่วมกับทีม และการนำเทคโนโลยีมาแก้ปัญหาจริง",
+    problem: "วัตถุประสงค์",
+    responsibility: "หน้าที่รับผิดชอบ",
+    result: "ผลลัพธ์",
+    team: "ทีม",
+    github: "ดูโค้ดบน GitHub",
+    awardLabel: "ACTIVITY & AWARD",
+    awardTitle: "Best AI Prototype for Real-World Impact Award",
+    awardEvent: "IT Empowering Day 2026 · Bangkok University",
+    awardBody:
+      "ร่วมพัฒนา StyleSpace ตั้งแต่หน้าอัปโหลดแปลน การเชื่อมต่อ AI เพื่อวิเคราะห์ห้องและสร้างภาพจำลอง ไปจนถึงระบบแนะนำสไตล์ วัสดุ และผลิตภัณฑ์ พร้อมทดสอบระบบ แก้ไขข้อผิดพลาด และร่วมเตรียมผลงานสำหรับนำเสนอต่อคณะกรรมการ",
+    awardResult:
+      "ผลงานได้รับรางวัลจากการประยุกต์ใช้ AI เพื่อช่วยให้ผู้ใช้งานมองเห็นภาพห้องก่อนตัดสินใจตกแต่ง สะท้อนประสบการณ์ด้านการทำงานเป็นทีม การพัฒนาต้นแบบจากโจทย์จริง และการนำเสนอผลงาน",
+    contactLabel: "CONTACT",
+    contactTitle: "มาร่วมสร้างซอฟต์แวร์ที่มีคุณภาพไปด้วยกัน",
+    contactBody:
+      "ผมกำลังมองหาโอกาสสหกิจในตำแหน่ง Software Tester (QA) Intern และพร้อมเรียนรู้จากทีมพัฒนาซอฟต์แวร์ในสภาพแวดล้อมการทำงานจริง",
+    email: "อีเมล",
+    phone: "โทรศัพท์",
+    footer: "ออกแบบและพัฒนาโดย Athip Saenpakdee",
+  },
+  en: {
+    nav: {
+      about: "About",
+      education: "Education",
+      skills: "Skills",
+      projects: "Projects",
+      award: "Award",
+      contact: "Contact",
+    },
+    heroEyebrow: "Hello, I’m Ole",
+    role: "Computer Science Student",
+    target: "Seeking a Software Tester (QA) Co-op Internship",
+    intro:
+      "A Computer Science student interested in Software Testing and Quality Assurance. I am detail-oriented and enjoy examining websites and applications to identify issues. I am eager to strengthen my skills in test case design, bug reporting, API testing, and real-world software development processes.",
+    viewProjects: "View Projects",
+    contactMe: "Contact Me",
+    openToWork: "OPEN TO CO-OP",
+    statProjects: "Featured Projects",
+    statAward: "AI Award",
+    statGpa: "GPA",
+    aboutLabel: "ABOUT ME",
+    aboutTitle: "A little more about me",
+    aboutBody:
+      "I am passionate about software testing and enjoy exploring websites and applications to find usability and functional issues. I am also interested in learning tools such as Postman and SQL. My goal is to begin my career in Software Testing and Quality Assurance, gain practical experience, and grow into a dependable software tester.",
+    strengthsTitle: "Strengths",
+    strengths: [
+      "Detail-oriented and observant",
+      "Analytical, step-by-step problem solving",
+      "Responsible and dependable",
+      "Open to feedback and eager to learn",
+      "Able to read technical documentation in English",
+    ],
+    educationLabel: "EDUCATION",
+    educationTitle: "Academic background",
+    degree: "Bachelor of Science in Computer Science",
+    faculty: "School of Information Technology and Innovation",
+    university: "Bangkok University",
+    studyYear: "2023 — 2027 (Expected)",
+    skillsLabel: "TECHNICAL SKILLS",
+    skillsTitle: "Skills and tools",
+    basic: "Basic",
+    intermediate: "Intermediate",
+    projectsLabel: "SELECTED PROJECTS",
+    projectsTitle: "Featured work",
+    projectsLead:
+      "Projects that demonstrate development, software testing, teamwork, and the practical application of technology.",
+    problem: "Objective",
+    responsibility: "My contribution",
+    result: "Outcome",
+    team: "Team",
+    github: "View on GitHub",
+    awardLabel: "ACTIVITY & AWARD",
+    awardTitle: "Best AI Prototype for Real-World Impact Award",
+    awardEvent: "IT Empowering Day 2026 · Bangkok University",
+    awardBody:
+      "Contributed to StyleSpace across the upload experience, AI integrations for room analysis and image generation, style and material recommendations, system testing, bug fixing, and preparation for the judging presentation.",
+    awardResult:
+      "The project received this award for applying AI to a real interior-design decision problem. The experience strengthened my teamwork, product prototyping, software testing, and presentation skills.",
+    contactLabel: "CONTACT",
+    contactTitle: "Let’s build quality software together",
+    contactBody:
+      "I am currently seeking a Software Tester (QA) Co-op Internship and am ready to learn from a software team in a real working environment.",
+    email: "Email",
+    phone: "Phone",
+    footer: "Designed and developed by Athip Saenpakdee",
+  },
+} as const;
+
+const skills = [
+  {
+    title: "Programming",
+    items: [
+      ["Python", "basic"],
+      ["Java", "basic"],
+      ["Dart", "basic"],
+    ],
+  },
+  {
+    title: "Web & Mobile",
+    items: [
+      ["HTML & CSS", "intermediate"],
+      ["JavaScript", "basic"],
+      ["Flutter", "basic"],
+    ],
+  },
+  {
+    title: "Database",
+    items: [
+      ["MySQL", "basic"],
+      ["SQLite", "basic"],
+      ["Firebase", "basic"],
+    ],
+  },
+  {
+    title: "Tools",
+    items: [
+      ["Git & GitHub", "basic"],
+      ["Postman", "basic"],
+      ["Figma", "basic"],
+      ["Visual Studio Code", "intermediate"],
+    ],
+  },
+  {
+    title: "Software Testing",
+    items: [
+      ["Manual Testing", "basic"],
+      ["Test Case Design", "basic"],
+      ["Bug Reporting", "basic"],
+    ],
+  },
+  {
+  title: "Language",
+  items: [
+    ["Thai — Native", "intermediate"],
+    ["English — CEFR B2", "intermediate"],,
+  ],
+},
+] as const;
+
+const projects = {
+  th: [
+    {
+      number: "01",
+      title: "ระบบรู้จำเลขไทยจากลายมือ ๓๑–๓๕",
+      subtitle: "Thai Handwritten Digit Recognition",
+      image: "/portfolio/project-thai-handwriting.png",
+      alt: "หน้าจอเว็บแอปพลิเคชันทำนายเลขไทยจากลายมือ",
+      objective:
+        "พัฒนาระบบ Machine Learning สำหรับจำแนกลายมือภาษาไทย และเรียนรู้กระบวนการฝึก ประเมิน และนำโมเดลไปใช้งานผ่านเว็บ",
+      contribution:
+        "พัฒนาเส้นทางหน้าเว็บและ API ตรวจสอบโมเดล จัดทำไฟล์ตั้งค่า พัฒนาหน้าวาดและทำนาย รวมถึงส่วนประเมิน Accuracy, Precision, Recall, F1-score และ Confusion Matrix",
+      outcome:
+        "เว็บต้นแบบสามารถจำแนกเลขไทย ๓๑–๓๕ พร้อมแสดงค่าความมั่นใจและรองรับการประเมินโมเดล",
+      tech: ["Python", "PyTorch", "CNN", "Flask", "JavaScript"],
+      team: "โปรเจกต์กลุ่ม 4 คน",
+      link: "https://github.com/AthipOle/ThaiHandwriting_ML_ALL_IN_CS462_327B",
+    },
+    {
+      number: "02",
+      title: "HydroH2O",
+      subtitle: "แอปพลิเคชันติดตามการดื่มน้ำ",
+      image: "/portfolio/project-hydroh2o.png",
+      alt: "หน้าหลักของแอป HydroH2O แสดงปริมาณน้ำที่ดื่ม",
+      objective:
+        "ช่วยให้ผู้ใช้งานดื่มน้ำอย่างสม่ำเสมอ ผ่านการบันทึก สถิติ เป้าหมายต่อเนื่อง และระบบคูปองรางวัล",
+      contribution:
+        "พัฒนาระบบสมัครสมาชิกและเข้าสู่ระบบ ออกแบบโมเดลผู้ใช้ เข้ารหัสรหัสผ่านด้วย Argon2id จัดการ Session และเขียน Unit Test ระบบ Authentication 9 กรณี",
+      outcome:
+        "แอปต้นแบบติดตามน้ำได้ครบถ้วน พร้อมระบบสมาชิก กราฟย้อนหลัง เป้าหมายต่อเนื่อง และคูปองรางวัล",
+      tech: ["Flutter", "Dart", "SQLite", "Argon2id", "FL Chart"],
+      team: "โปรเจกต์กลุ่ม 4 คน",
+      link: "https://github.com/AthipOle/hydro-h2o",
+    },
+    {
+      number: "03",
+      title: "StyleSpace",
+      subtitle: "ระบบออกแบบตกแต่งภายในด้วย AI",
+      image: "/portfolio/project-stylespace.png",
+      alt: "บูธนำเสนอโปรเจกต์ StyleSpace ในงาน IT Empowering Day",
+      objective:
+        "ช่วยให้ผู้ใช้เห็นภาพห้องหลังตกแต่งจากแปลน 2D ก่อนตัดสินใจเลือกสไตล์ วัสดุ และผลิตภัณฑ์",
+      contribution:
+        "พัฒนาหน้าอัปโหลดและแสดงผล เชื่อมต่อ Claude Vision และ Gemini พัฒนาระบบแนะนำสไตล์และวัสดุ พร้อมทดสอบและแก้ไขข้อผิดพลาด",
+      outcome:
+        "ระบบสามารถวิเคราะห์แปลน แนะนำสไตล์และวัสดุ และสร้างภาพจำลอง Isometric 3D ได้ 6 สไตล์",
+      tech: ["TypeScript", "Vite", "Cloudflare", "Claude Vision", "Gemini"],
+      team: "Senior Project ทีม All in · โจทย์จาก SCG",
+      link: "https://github.com/AthipOle/stylespace-main",
+    },
+  ],
+  en: [
+    {
+      number: "01",
+      title: "Thai Handwritten Digit Recognition",
+      subtitle: "Recognition system for Thai numerals ๓๑–๓๕",
+      image: "/portfolio/project-thai-handwriting.png",
+      alt: "Thai handwritten numeral prediction web application",
+      objective:
+        "Build a machine-learning system for Thai handwriting recognition and learn the full model training, evaluation, and web deployment workflow.",
+      contribution:
+        "Developed web routes and a model information API, application configuration, the drawing and prediction interface, and evaluation for accuracy, precision, recall, F1-score, and confusion matrix.",
+      outcome:
+        "A working prototype that classifies Thai numerals ๓๑–๓๕, displays confidence scores, and supports model evaluation.",
+      tech: ["Python", "PyTorch", "CNN", "Flask", "JavaScript"],
+      team: "Team project · 4 members",
+      link: "https://github.com/AthipOle/ThaiHandwriting_ML_ALL_IN_CS462_327B",
+    },
+    {
+      number: "02",
+      title: "HydroH2O",
+      subtitle: "Mobile water-intake tracking application",
+      image: "/portfolio/project-hydroh2o.png",
+      alt: "HydroH2O home screen showing daily water intake",
+      objective:
+        "Encourage consistent hydration through daily tracking, statistics, streaks, and reward coupons.",
+      contribution:
+        "Built registration and login, designed the user model, secured passwords with Argon2id, managed sessions, and wrote nine authentication unit-test cases.",
+      outcome:
+        "A complete prototype with member accounts, seven-day charts, daily goals, streaks, and a reward coupon flow.",
+      tech: ["Flutter", "Dart", "SQLite", "Argon2id", "FL Chart"],
+      team: "Team project · 4 members",
+      link: "https://github.com/AthipOle/hydro-h2o",
+    },
+    {
+      number: "03",
+      title: "StyleSpace",
+      subtitle: "AI-powered interior design platform",
+      image: "/portfolio/project-stylespace.png",
+      alt: "StyleSpace project booth at IT Empowering Day",
+      objective:
+        "Help users visualize a decorated room from a 2D floor plan before choosing a style, material, or product.",
+      contribution:
+        "Built upload and result interfaces, integrated Claude Vision and Gemini, developed style and material recommendations, and tested and debugged the system.",
+      outcome:
+        "The system analyzes floor plans, recommends styles and materials, and produces Isometric 3D visualizations in six design styles.",
+      tech: ["TypeScript", "Vite", "Cloudflare", "Claude Vision", "Gemini"],
+      team: "All in Senior Project · SCG challenge",
+      link: "https://github.com/AthipOle/stylespace-main",
+    },
+  ],
+} as const;
+
+export default function Home() {
+  const [lang, setLang] = useState<Language>("th");
+  const t = copy[lang];
+
+  return (
+    <main>
+      <header className="site-header">
+        <a className="brand" href="#home" aria-label="Athip portfolio home">
+          <span className="brand-mark">AS</span>
+          <span>
+            <strong>Athip Saenpakdee</strong>
+            <small>Software Tester (QA) Intern</small>
+          </span>
+        </a>
+        <nav className="main-nav" aria-label="Main navigation">
+          <a href="#about">{t.nav.about}</a>
+          <a href="#education">{t.nav.education}</a>
+          <a href="#skills">{t.nav.skills}</a>
+          <a href="#projects">{t.nav.projects}</a>
+          <a href="#award">{t.nav.award}</a>
+          <a href="#contact">{t.nav.contact}</a>
+        </nav>
+        <div className="language-toggle" aria-label="Language">
+          <button
+            className={lang === "th" ? "active" : ""}
+            onClick={() => setLang("th")}
+            aria-pressed={lang === "th"}
+          >
+            TH
+          </button>
+          <span>/</span>
+          <button
+            className={lang === "en" ? "active" : ""}
+            onClick={() => setLang("en")}
+            aria-pressed={lang === "en"}
+          >
+            EN
+          </button>
+        </div>
+      </header>
+
+      <section className="hero section-shell" id="home">
+        <div className="hero-copy">
+          <p className="eyebrow">{t.heroEyebrow}</p>
+          <h1>
+            Athip <span>Saenpakdee</span>
+          </h1>
+          <p className="hero-role">{t.role}</p>
+          <div className="target-pill">
+            <span className="pulse-dot" />
+            {t.target}
+          </div>
+          <p className="hero-intro">{t.intro}</p>
+          <div className="hero-actions">
+            <a className="button primary" href="#projects">
+              {t.viewProjects} <span aria-hidden="true">↓</span>
+            </a>
+            <a className="button secondary" href="mailto:athipole@gmail.com">
+              {t.contactMe} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="hero-visual">
+          <div className="portrait-frame">
+            <div className="availability">{t.openToWork}</div>
+            <img
+              src="/portfolio/athip-profile.png"
+              alt="Athip Saenpakdee"
+            />
+            <div className="portrait-caption">
+              <span>Ole</span>
+              <small>Bangkok, Thailand</small>
+            </div>
+          </div>
+          <div className="decor-grid" aria-hidden="true" />
+        </div>
+      </section>
+
+      <section className="quick-stats">
+        <div className="section-shell stats-grid">
+          <div>
+            <strong>3</strong>
+            <span>{t.statProjects}</span>
+          </div>
+          <div>
+            <strong>1</strong>
+            <span>{t.statAward}</span>
+          </div>
+          <div>
+            <strong>2.91</strong>
+            <span>{t.statGpa}</span>
+          </div>
+          <div className="status-card">
+            <span className="pulse-dot" />
+            <strong>QA CO-OP 2027</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section section-shell" id="about">
+        <div className="section-heading">
+          <p className="eyebrow">{t.aboutLabel}</p>
+          <h2>{t.aboutTitle}</h2>
+        </div>
+        <div className="about-grid">
+          <p className="large-copy">{t.aboutBody}</p>
+          <div className="strength-card">
+            <h3>{t.strengthsTitle}</h3>
+            <ul>
+              {t.strengths.map((strength) => (
+                <li key={strength}>
+                  <span>✓</span>
+                  {strength}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section education-section" id="education">
+        <div className="section-shell">
+          <div className="section-heading">
+            <p className="eyebrow">{t.educationLabel}</p>
+            <h2>{t.educationTitle}</h2>
+          </div>
+          <article className="education-card">
+            <div className="education-year">2023</div>
+            <div className="education-main">
+              <span className="university-chip">BU</span>
+              <div>
+                <h3>{t.degree}</h3>
+                <p>{t.faculty}</p>
+                <strong>{t.university}</strong>
+              </div>
+            </div>
+            <div className="education-meta">
+              <span>{t.studyYear}</span>
+              <strong>GPA 2.91</strong>
+            </div>
+          </article>
+          <article className="education-card">
+  <div className="education-year">2019</div>
+
+  <div className="education-main">
+    <span className="university-chip">KST</span>
+
+    <div>
+      <h3>
+        {lang === "th"
+          ? "มัธยมศึกษาตอนปลาย แผนการเรียน วิทยาศาสตร์–คณิตศาสตร์"
+          : "Upper Secondary Education — Science–Mathematics Program"}
+      </h3>
+
+      <p>
+        {lang === "th"
+          ? "แผนการเรียน วิทยาศาสตร์–คณิตศาสตร์"
+          : "Science–Mathematics Program"}
+      </p>
+
+      <strong>
+        {lang === "th"
+          ? "โรงเรียนกัลยาณีศรีธรรมราช"
+          : "Kanlayanee Si Thammarat School"}
+      </strong>
+    </div>
+  </div>
+
+  <div className="education-meta">
+    <span>2019 — 2021</span>
+  </div>
+</article>
+
+<article className="education-card">
+  <div className="education-year">2016</div>
+
+  <div className="education-main">
+    <span className="university-chip">KST</span>
+
+    <div>
+      <h3>
+        {lang === "th"
+          ? "มัธยมศึกษาตอนต้น แผนการเรียน — English Program"
+          : "Lower Secondary Education — English Program"}
+      </h3>
+
+      <p>
+        {lang === "th"
+          ? "แผนการเรียน English Program"
+          : "English Program"}
+      </p>
+
+      <strong>
+        {lang === "th"
+          ? "โรงเรียนกัลยาณีศรีธรรมราช"
+          : "Kanlayanee Si Thammarat School"}
+      </strong>
+    </div>
+  </div>
+
+  <div className="education-meta">
+    <span>2016 — 2018</span>
+  </div>
+</article>
+        </div>
+      </section>
+
+      <section className="content-section section-shell" id="skills">
+        <div className="section-heading">
+          <p className="eyebrow">{t.skillsLabel}</p>
+          <h2>{t.skillsTitle}</h2>
+        </div>
+        <div className="skills-grid">
+          {skills.map((group, index) => (
+            <article className="skill-card" key={group.title}>
+              <div className="skill-card-head">
+                <span>0{index + 1}</span>
+                <h3>{group.title}</h3>
+              </div>
+              <div className="skill-list">
+                {group.items.map(([name, level]) => (
+                  <div className="skill-row" key={name}>
+  <span>{name}</span>
+</div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="content-section projects-section" id="projects">
+        <div className="section-shell">
+          <div className="section-heading project-heading">
+            <div>
+              <p className="eyebrow">{t.projectsLabel}</p>
+              <h2>{t.projectsTitle}</h2>
+            </div>
+            <p>{t.projectsLead}</p>
+          </div>
+
+          <div className="project-list">
+            {projects[lang].map((project) => (
+              <article className="project-card" key={project.number}>
+                <div className="project-image">
+                  <img src={project.image} alt={project.alt} />
+                  <span className="project-number">{project.number}</span>
+                </div>
+                <div className="project-content">
+                  <div>
+                    <p className="project-subtitle">{project.subtitle}</p>
+                    <h3>{project.title}</h3>
+                  </div>
+                  <div className="project-detail">
+                    <strong>{t.problem}</strong>
+                    <p>{project.objective}</p>
+                  </div>
+                  <div className="project-detail">
+                    <strong>{t.responsibility}</strong>
+                    <p>{project.contribution}</p>
+                  </div>
+                  <div className="project-detail">
+                    <strong>{t.result}</strong>
+                    <p>{project.outcome}</p>
+                  </div>
+                  <div className="tag-list">
+                    {project.tech.map((tech) => (
+                      <span key={tech}>{tech}</span>
+                    ))}
+                  </div>
+                  <div className="project-footer">
+                    <span>
+                      <strong>{t.team}:</strong> {project.team}
+                    </span>
+                    <a href={project.link} target="_blank" rel="noreferrer">
+                      {t.github} <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section section-shell" id="award">
+        <div className="award-layout">
+          <div className="award-copy">
+            <p className="eyebrow">{t.awardLabel}</p>
+            <div className="award-icon" aria-hidden="true">
+              ★
+            </div>
+            <h2>{t.awardTitle}</h2>
+            <p className="award-event">{t.awardEvent}</p>
+            <p>{t.awardBody}</p>
+            <div className="award-result">
+              <span>WINNER</span>
+              <p>{t.awardResult}</p>
+            </div>
+          </div>
+          <div className="award-gallery">
+            <figure className="award-main-image">
+              <img
+                src="/portfolio/award-winner.png"
+                alt="Athip holding the Best AI Prototype for Real-World Impact Award"
+              />
+            </figure>
+            <figure className="award-secondary-image">
+              <img
+                src="/portfolio/award-stage.png"
+                alt="StyleSpace team receiving the award on stage"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-section" id="contact">
+        <div className="section-shell contact-grid">
+          <div>
+            <p className="eyebrow light">{t.contactLabel}</p>
+            <h2>{t.contactTitle}</h2>
+            <p>{t.contactBody}</p>
+          </div>
+          <div className="contact-links">
+            <a href="mailto:athipole@gmail.com">
+              <span>
+                <small>{t.email}</small>
+                <strong>athipole@gmail.com</strong>
+              </span>
+              <b>↗</b>
+            </a>
+            <a href="tel:+66611391658">
+              <span>
+                <small>{t.phone}</small>
+                <strong>061-139-1658</strong>
+              </span>
+              <b>↗</b>
+            </a>
+            <a
+              href="https://github.com/AthipOle"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>
+                <small>GitHub</small>
+                <strong>github.com/AthipOle</strong>
+              </span>
+              <b>↗</b>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="section-shell">
+          <span>© 2026 Athip Saenpakdee</span>
+          <span>{t.footer}</span>
+        </div>
+      </footer>
+    </main>
+  );
+}
