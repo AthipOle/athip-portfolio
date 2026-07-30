@@ -350,7 +350,7 @@ export default function Home() {
             <a className="button primary" href="#projects">
               {t.viewProjects} <span aria-hidden="true">↓</span>
             </a>
-            <a className="button secondary" href="mailto:athipole@gmail.com">
+            <a className="button secondary" href="#contact">
               {t.contactMe} <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -619,7 +619,11 @@ export default function Home() {
             <p>{t.contactBody}</p>
           </div>
           <div className="contact-links">
-            <a href="mailto:athipole@gmail.com">
+            <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=athipole@gmail.com"
+  target="_blank"
+  rel="noreferrer"
+>
               <span>
                 <small>{t.email}</small>
                 <strong>athipole@gmail.com</strong>
