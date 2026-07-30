@@ -496,6 +496,38 @@ export default function Home() {
               <span>2016 — 2018</span>
             </div>
           </article>
+
+          <article className="education-card">
+            <div className="education-year">2010</div>
+
+            <div className="education-main">
+              <span className="university-chip">AMC</span>
+
+              <div>
+                <h3>
+                  {lang === "th"
+                    ? "ระดับประถมศึกษา แผนการเรียน — English Program"
+                    : "Primary Education — English Program"}
+                </h3>
+
+                <p>
+                  {lang === "th"
+                    ? "แผนการเรียน English Program"
+                    : "English Program"}
+                </p>
+
+                <strong>
+                  {lang === "th"
+                    ? "โรงเรียนศรีธรรมราชศึกษา"
+                    : "Srithammaratsuksa School"}
+                </strong>
+              </div>
+            </div>
+
+            <div className="education-meta">
+              <span>2010 — 2015</span>
+            </div>
+          </article>
         </div>
       </section>
 
