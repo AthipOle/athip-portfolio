@@ -15,10 +15,10 @@ const copy = {
       contact: "ติดต่อ",
     },
     heroEyebrow: "สวัสดีครับ ผมโอเล่",
-    role: "Computer Science Student",
-    target: "กำลังมองหาโอกาสสหกิจในตำแหน่ง Software Tester (QA) Intern",
+    role: "Full Stack Developer",
+    target: "กำลังมองหาโอกาสสหกิจในตำแหน่ง Full Stack Developer Intern",
     intro:
-      "นักศึกษาสาขาวิทยาการคอมพิวเตอร์ที่สนใจงานด้าน Software Testing และ Quality Assurance มีความละเอียดรอบคอบ ชอบวิเคราะห์การทำงานของเว็บไซต์และแอปพลิเคชันเพื่อค้นหาข้อผิดพลาด พร้อมเรียนรู้การเขียน Test Case การรายงาน Bug การทดสอบ API และกระบวนการพัฒนาซอฟต์แวร์จากประสบการณ์ทำงานจริง",
+      "นักศึกษาสาขาวิทยาการคอมพิวเตอร์ที่สนใจการพัฒนาเว็บแอปพลิเคชันแบบ Full Stack มีประสบการณ์จากโปรเจกต์มหาวิทยาลัยทั้งด้าน Frontend, Backend, API, Authentication และฐานข้อมูล พร้อมเรียนรู้เทคโนโลยีและกระบวนการพัฒนาซอฟต์แวร์จากการทำงานจริง",
     viewProjects: "ดูผลงาน",
     contactMe: "ติดต่อผม",
     openToWork: "OPEN TO CO-OP",
@@ -28,7 +28,7 @@ const copy = {
     aboutLabel: "ABOUT ME",
     aboutTitle: "รู้จักผมให้มากขึ้น",
     aboutBody:
-      "ผมสนใจงานด้านการทดสอบซอฟต์แวร์ ชอบทดลองใช้งานเว็บไซต์และแอปพลิเคชันเพื่อค้นหาจุดที่ผิดพลาด รวมถึงสนใจเรียนรู้เครื่องมือใหม่ ๆ เช่น Postman และ SQL ผมต้องการเริ่มต้นในสาย Software Testing และ Quality Assurance เพื่อพัฒนาทักษะจากการทำงานจริง และต่อยอดสู่การเป็น Software Tester ที่มีคุณภาพในอนาคต",
+      "ผมสนใจการพัฒนาเว็บแอปพลิเคชันตั้งแต่การออกแบบส่วนติดต่อผู้ใช้ การพัฒนาระบบหลังบ้าน การเชื่อมต่อ API ไปจนถึงการจัดการฐานข้อมูล เป้าหมายของผมคือพัฒนาทักษะด้าน Full Stack Development จากการทำงานจริง และเติบโตเป็นนักพัฒนาที่สามารถสร้างระบบได้อย่างครบวงจร",
     strengthsTitle: "จุดแข็ง",
     strengths: [
       "ละเอียดรอบคอบและช่างสังเกต",
@@ -50,7 +50,7 @@ const copy = {
     projectsLabel: "SELECTED PROJECTS",
     projectsTitle: "ผลงานที่คัดสรร",
     projectsLead:
-      "โปรเจกต์ที่สะท้อนทักษะด้านการพัฒนา การทดสอบระบบ การทำงานร่วมกับทีม และการนำเทคโนโลยีมาแก้ปัญหาจริง",
+      "โปรเจกต์ที่สะท้อนทักษะด้าน Frontend, Backend, API, ฐานข้อมูล การทำงานร่วมกับทีม และการนำเทคโนโลยีมาแก้ปัญหาจริง",
     problem: "วัตถุประสงค์",
     responsibility: "หน้าที่รับผิดชอบ",
     result: "ผลลัพธ์",
@@ -60,13 +60,13 @@ const copy = {
     awardTitle: "Best AI Prototype for Real-World Impact Award",
     awardEvent: "IT Empowering Day 2026 · Bangkok University",
     awardBody:
-      "ร่วมพัฒนา StyleSpace ตั้งแต่หน้าอัปโหลดแปลน การเชื่อมต่อ AI เพื่อวิเคราะห์ห้องและสร้างภาพจำลอง ไปจนถึงระบบแนะนำสไตล์ วัสดุ และผลิตภัณฑ์ พร้อมทดสอบระบบ แก้ไขข้อผิดพลาด และร่วมเตรียมผลงานสำหรับนำเสนอต่อคณะกรรมการ",
+      "ร่วมพัฒนา StyleSpace ตั้งแต่หน้าอัปโหลดแปลน การเชื่อมต่อ AI เพื่อวิเคราะห์ห้องและสร้างภาพจำลอง ไปจนถึงระบบแนะนำสไตล์ วัสดุ และผลิตภัณฑ์ พร้อมดูแลการเชื่อมต่อระบบ ทดสอบ แก้ไขข้อผิดพลาด และร่วมเตรียมผลงานสำหรับนำเสนอต่อคณะกรรมการ",
     awardResult:
-      "ผลงานได้รับรางวัลจากการประยุกต์ใช้ AI เพื่อช่วยให้ผู้ใช้งานมองเห็นภาพห้องก่อนตัดสินใจตกแต่ง สะท้อนประสบการณ์ด้านการทำงานเป็นทีม การพัฒนาต้นแบบจากโจทย์จริง และการนำเสนอผลงาน",
+      "ผลงานได้รับรางวัลจากการประยุกต์ใช้ AI เพื่อช่วยให้ผู้ใช้งานมองเห็นภาพห้องก่อนตัดสินใจตกแต่ง สะท้อนประสบการณ์ด้านการทำงานเป็นทีม การพัฒนาเว็บแอปพลิเคชันแบบ Full Stack การสร้างต้นแบบจากโจทย์จริง และการนำเสนอผลงาน",
     contactLabel: "CONTACT",
-    contactTitle: "มาร่วมสร้างซอฟต์แวร์ที่มีคุณภาพไปด้วยกัน",
+    contactTitle: "มาร่วมสร้างเว็บแอปพลิเคชันที่ใช้งานได้จริงไปด้วยกัน",
     contactBody:
-      "ผมกำลังมองหาโอกาสสหกิจในตำแหน่ง Software Tester (QA) Intern และพร้อมเรียนรู้จากทีมพัฒนาซอฟต์แวร์ในสภาพแวดล้อมการทำงานจริง",
+      "ผมกำลังมองหาโอกาสสหกิจในตำแหน่ง Full Stack Developer Intern และพร้อมเรียนรู้และพัฒนาซอฟต์แวร์ร่วมกับทีมในสภาพแวดล้อมการทำงานจริง",
     email: "อีเมล",
     phone: "โทรศัพท์",
     footer: "ออกแบบและพัฒนาโดย Athip Saenpakdee",
@@ -81,10 +81,10 @@ const copy = {
       contact: "Contact",
     },
     heroEyebrow: "Hello, I’m Ole",
-    role: "Computer Science Student",
-    target: "Seeking a Software Tester (QA) Co-op Internship",
+    role: "Full Stack Developer",
+    target: "Seeking a Full Stack Developer Co-op Internship",
     intro:
-      "A Computer Science student interested in Software Testing and Quality Assurance. I am detail-oriented and enjoy examining websites and applications to identify issues. I am eager to strengthen my skills in test case design, bug reporting, API testing, and real-world software development processes.",
+      "A Computer Science student interested in full-stack web development, with project experience across frontend interfaces, backend services, APIs, authentication, and databases. I am eager to strengthen my development skills through real-world software projects.",
     viewProjects: "View Projects",
     contactMe: "Contact Me",
     openToWork: "OPEN TO CO-OP",
@@ -94,7 +94,7 @@ const copy = {
     aboutLabel: "ABOUT ME",
     aboutTitle: "A little more about me",
     aboutBody:
-      "I am passionate about software testing and enjoy exploring websites and applications to find usability and functional issues. I am also interested in learning tools such as Postman and SQL. My goal is to begin my career in Software Testing and Quality Assurance, gain practical experience, and grow into a dependable software tester.",
+      "I am interested in building complete web applications, from user interface development and backend services to API integration and database management. My goal is to gain practical full-stack development experience and grow into a developer who can build reliable end-to-end systems.",
     strengthsTitle: "Strengths",
     strengths: [
       "Detail-oriented and observant",
@@ -116,7 +116,7 @@ const copy = {
     projectsLabel: "SELECTED PROJECTS",
     projectsTitle: "Featured work",
     projectsLead:
-      "Projects that demonstrate development, software testing, teamwork, and the practical application of technology.",
+      "Projects that demonstrate frontend and backend development, API integration, database design, teamwork, and the practical application of technology.",
     problem: "Objective",
     responsibility: "My contribution",
     result: "Outcome",
@@ -126,13 +126,13 @@ const copy = {
     awardTitle: "Best AI Prototype for Real-World Impact Award",
     awardEvent: "IT Empowering Day 2026 · Bangkok University",
     awardBody:
-      "Contributed to StyleSpace across the upload experience, AI integrations for room analysis and image generation, style and material recommendations, system testing, bug fixing, and preparation for the judging presentation.",
+      "Contributed to StyleSpace across the upload experience, AI integrations for room analysis and image generation, style and material recommendations, system integration, testing, debugging, and preparation for the judging presentation.",
     awardResult:
-      "The project received this award for applying AI to a real interior-design decision problem. The experience strengthened my teamwork, product prototyping, software testing, and presentation skills.",
+      "The project received this award for applying AI to a real interior-design decision problem. The experience strengthened my teamwork, full-stack web development, product prototyping, and presentation skills.",
     contactLabel: "CONTACT",
-    contactTitle: "Let’s build quality software together",
+    contactTitle: "Let’s build useful web applications together",
     contactBody:
-      "I am currently seeking a Software Tester (QA) Co-op Internship and am ready to learn from a software team in a real working environment.",
+      "I am currently seeking a Full Stack Developer Co-op Internship and am ready to learn and contribute within a real software development team.",
     email: "Email",
     phone: "Phone",
     footer: "Designed and developed by Athip Saenpakdee",
@@ -146,14 +146,23 @@ const skills = [
       ["Python", "basic"],
       ["Java", "basic"],
       ["Dart", "basic"],
+      ["TypeScript", "basic"],
     ],
   },
   {
-    title: "Web & Mobile",
+    title: "Frontend & Mobile",
     items: [
       ["HTML & CSS", "intermediate"],
       ["JavaScript", "basic"],
       ["Flutter", "basic"],
+    ],
+  },
+  {
+    title: "Backend & API",
+    items: [
+      ["Flask", "basic"],
+      ["REST API", "basic"],
+      ["Authentication", "basic"],
     ],
   },
   {
@@ -174,20 +183,12 @@ const skills = [
     ],
   },
   {
-    title: "Software Testing",
+    title: "Language",
     items: [
-      ["Manual Testing", "basic"],
-      ["Test Case Design", "basic"],
-      ["Bug Reporting", "basic"],
+      ["Thai — Native", "intermediate"],
+      ["English — CEFR B2", "intermediate"],
     ],
   },
-  {
-  title: "Language",
-  items: [
-    ["Thai — Native", "intermediate"],
-    ["English — CEFR B2", "intermediate"],,
-  ],
-},
 ] as const;
 
 const projects = {
@@ -304,7 +305,7 @@ export default function Home() {
           <span className="brand-mark">AS</span>
           <span>
             <strong>Athip Saenpakdee</strong>
-            <small>Software Tester (QA) Intern</small>
+            <small>Full Stack Developer Intern</small>
           </span>
         </a>
         <nav className="main-nav" aria-label="Main navigation">
@@ -359,10 +360,7 @@ export default function Home() {
         <div className="hero-visual">
           <div className="portrait-frame">
             <div className="availability">{t.openToWork}</div>
-            <img
-              src="/portfolio/athip-profile.png"
-              alt="Athip Saenpakdee"
-            />
+            <img src="/portfolio/athip-profile.png" alt="Athip Saenpakdee" />
             <div className="portrait-caption">
               <span>Ole</span>
               <small>Bangkok, Thailand</small>
@@ -388,7 +386,7 @@ export default function Home() {
           </div>
           <div className="status-card">
             <span className="pulse-dot" />
-            <strong>QA CO-OP 2027</strong>
+            <strong>FULL STACK CO-OP 2027</strong>
           </div>
         </div>
       </section>
@@ -436,68 +434,68 @@ export default function Home() {
             </div>
           </article>
           <article className="education-card">
-  <div className="education-year">2019</div>
+            <div className="education-year">2019</div>
 
-  <div className="education-main">
-    <span className="university-chip">KN</span>
+            <div className="education-main">
+              <span className="university-chip">KN</span>
 
-    <div>
-      <h3>
-        {lang === "th"
-          ? "มัธยมศึกษาตอนปลาย แผนการเรียน วิทยาศาสตร์–คณิตศาสตร์"
-          : "Upper Secondary Education — Science–Mathematics Program"}
-      </h3>
+              <div>
+                <h3>
+                  {lang === "th"
+                    ? "มัธยมศึกษาตอนปลาย แผนการเรียน วิทยาศาสตร์–คณิตศาสตร์"
+                    : "Upper Secondary Education — Science–Mathematics Program"}
+                </h3>
 
-      <p>
-        {lang === "th"
-          ? "แผนการเรียน วิทยาศาสตร์–คณิตศาสตร์"
-          : "Science–Mathematics Program"}
-      </p>
+                <p>
+                  {lang === "th"
+                    ? "แผนการเรียน วิทยาศาสตร์–คณิตศาสตร์"
+                    : "Science–Mathematics Program"}
+                </p>
 
-      <strong>
-        {lang === "th"
-          ? "โรงเรียนกัลยาณีศรีธรรมราช"
-          : "Kanlayanee Si Thammarat School"}
-      </strong>
-    </div>
-  </div>
+                <strong>
+                  {lang === "th"
+                    ? "โรงเรียนกัลยาณีศรีธรรมราช"
+                    : "Kanlayanee Si Thammarat School"}
+                </strong>
+              </div>
+            </div>
 
-  <div className="education-meta">
-    <span>2019 — 2021</span>
-  </div>
-</article>
+            <div className="education-meta">
+              <span>2019 — 2021</span>
+            </div>
+          </article>
 
-<article className="education-card">
-  <div className="education-year">2016</div>
+          <article className="education-card">
+            <div className="education-year">2016</div>
 
-  <div className="education-main">
-    <span className="university-chip">KN</span>
+            <div className="education-main">
+              <span className="university-chip">KN</span>
 
-    <div>
-      <h3>
-        {lang === "th"
-          ? "มัธยมศึกษาตอนต้น แผนการเรียน — English Program"
-          : "Lower Secondary Education — English Program"}
-      </h3>
+              <div>
+                <h3>
+                  {lang === "th"
+                    ? "มัธยมศึกษาตอนต้น แผนการเรียน — English Program"
+                    : "Lower Secondary Education — English Program"}
+                </h3>
 
-      <p>
-        {lang === "th"
-          ? "แผนการเรียน English Program"
-          : "English Program"}
-      </p>
+                <p>
+                  {lang === "th"
+                    ? "แผนการเรียน English Program"
+                    : "English Program"}
+                </p>
 
-      <strong>
-        {lang === "th"
-          ? "โรงเรียนกัลยาณีศรีธรรมราช"
-          : "Kanlayanee Si Thammarat School"}
-      </strong>
-    </div>
-  </div>
+                <strong>
+                  {lang === "th"
+                    ? "โรงเรียนกัลยาณีศรีธรรมราช"
+                    : "Kanlayanee Si Thammarat School"}
+                </strong>
+              </div>
+            </div>
 
-  <div className="education-meta">
-    <span>2016 — 2018</span>
-  </div>
-</article>
+            <div className="education-meta">
+              <span>2016 — 2018</span>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -514,10 +512,10 @@ export default function Home() {
                 <h3>{group.title}</h3>
               </div>
               <div className="skill-list">
-                {group.items.map(([name, level]) => (
+                {group.items.map(([name]) => (
                   <div className="skill-row" key={name}>
-  <span>{name}</span>
-</div>
+                    <span>{name}</span>
+                  </div>
                 ))}
               </div>
             </article>
@@ -620,10 +618,10 @@ export default function Home() {
           </div>
           <div className="contact-links">
             <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=athipole@gmail.com"
-  target="_blank"
-  rel="noreferrer"
->
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=athipole@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>
                 <small>{t.email}</small>
                 <strong>athipole@gmail.com</strong>

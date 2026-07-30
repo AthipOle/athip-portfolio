@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Athip Saenpakdee | Software Tester (QA) Portfolio",
+  title: "Athip Saenpakdee | Full Stack Developer Portfolio",
   description:
-    "Portfolio of Athip Saenpakdee, a Computer Science student seeking a Software Tester (QA) co-op internship.",
+    "Portfolio of Athip Saenpakdee, a Computer Science student seeking a Full Stack Developer co-op internship.",
   other: {
     "codex-preview": "development",
   },
