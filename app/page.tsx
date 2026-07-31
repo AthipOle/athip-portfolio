@@ -236,36 +236,6 @@ const certificates = [
     dateEn: "October 2025",
     image: "/portfolio/certificate-oracle-ai-foundations-1.png",
   },
-  {
-    id: "04",
-    titleTh:
-      "ผู้เชี่ยวชาญด้าน Generative AI บน Oracle Cloud Infrastructure ประจำปี 2025",
-    titleEn:
-      "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
-    issuer: "Oracle University",
-    dateTh: "ตุลาคม 2025",
-    dateEn: "October 2025",
-    image: "/portfolio/certificate-oracle-genai-2.png",
-  },
-  {
-    id: "05",
-    titleTh: "ผู้เชี่ยวชาญด้าน Oracle AI Vector Search",
-    titleEn: "Oracle AI Vector Search Certified Professional",
-    issuer: "Oracle University",
-    dateTh: "ตุลาคม 2025",
-    dateEn: "October 2025",
-    image: "/portfolio/certificate-oracle-vector-search-2.png",
-  },
-  {
-    id: "06",
-    titleTh: "พื้นฐานปัญญาประดิษฐ์บน Oracle Cloud Infrastructure ประจำปี 2025",
-    titleEn:
-      "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
-    issuer: "Oracle University",
-    dateTh: "ตุลาคม 2025",
-    dateEn: "October 2025",
-    image: "/portfolio/certificate-oracle-ai-foundations-2.png",
-  },
 ] as const;
 
 const projects = {
