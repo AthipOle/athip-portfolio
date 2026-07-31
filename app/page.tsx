@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type Language = "th" | "en";
 
@@ -10,6 +10,7 @@ const copy = {
       about: "เกี่ยวกับผม",
       education: "การศึกษา",
       skills: "ทักษะ",
+      certifications: "ใบรับรอง",
       projects: "โปรเจกต์",
       award: "รางวัล",
       contact: "ติดต่อ",
@@ -45,6 +46,12 @@ const copy = {
     studyYear: "2023 — 2027 (คาดว่าจะสำเร็จการศึกษา)",
     skillsLabel: "TECHNICAL SKILLS",
     skillsTitle: "ทักษะและเครื่องมือ",
+    certificationsLabel: "CERTIFICATIONS",
+    certificationsTitle: "ใบรับรองและประกาศนียบัตร",
+    certificationsLead:
+      "ใบรับรองด้าน Cloud, Generative AI และ AI Vector Search จาก Oracle University",
+    viewCertificate: "ดูใบประกาศ",
+    closeCertificate: "ปิด",
     basic: "พื้นฐาน",
     intermediate: "ปานกลาง",
     projectsLabel: "SELECTED PROJECTS",
@@ -76,6 +83,7 @@ const copy = {
       about: "About",
       education: "Education",
       skills: "Skills",
+      certifications: "Certifications",
       projects: "Projects",
       award: "Award",
       contact: "Contact",
@@ -111,6 +119,12 @@ const copy = {
     studyYear: "2023 — 2027 (Expected)",
     skillsLabel: "TECHNICAL SKILLS",
     skillsTitle: "Skills and tools",
+    certificationsLabel: "CERTIFICATIONS",
+    certificationsTitle: "Professional certifications",
+    certificationsLead:
+      "Cloud, Generative AI, and AI Vector Search certifications issued by Oracle University.",
+    viewCertificate: "View certificate",
+    closeCertificate: "Close",
     basic: "Basic",
     intermediate: "Intermediate",
     projectsLabel: "SELECTED PROJECTS",
@@ -188,6 +202,69 @@ const skills = [
       ["Thai — Native", "intermediate"],
       ["English — CEFR B2", "intermediate"],
     ],
+  },
+] as const;
+
+const certificates = [
+  {
+    id: "01",
+    titleTh:
+      "ผู้เชี่ยวชาญด้าน Generative AI บน Oracle Cloud Infrastructure ประจำปี 2025",
+    titleEn:
+      "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
+    issuer: "Oracle University",
+    dateTh: "ตุลาคม 2025",
+    dateEn: "October 2025",
+    image: "/portfolio/certificate-oracle-genai-1.png",
+  },
+  {
+    id: "02",
+    titleTh: "ผู้เชี่ยวชาญด้าน Oracle AI Vector Search",
+    titleEn: "Oracle AI Vector Search Certified Professional",
+    issuer: "Oracle University",
+    dateTh: "ตุลาคม 2025",
+    dateEn: "October 2025",
+    image: "/portfolio/certificate-oracle-vector-search-1.png",
+  },
+  {
+    id: "03",
+    titleTh: "พื้นฐานปัญญาประดิษฐ์บน Oracle Cloud Infrastructure ประจำปี 2025",
+    titleEn:
+      "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    issuer: "Oracle University",
+    dateTh: "ตุลาคม 2025",
+    dateEn: "October 2025",
+    image: "/portfolio/certificate-oracle-ai-foundations-1.png",
+  },
+  {
+    id: "04",
+    titleTh:
+      "ผู้เชี่ยวชาญด้าน Generative AI บน Oracle Cloud Infrastructure ประจำปี 2025",
+    titleEn:
+      "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
+    issuer: "Oracle University",
+    dateTh: "ตุลาคม 2025",
+    dateEn: "October 2025",
+    image: "/portfolio/certificate-oracle-genai-2.png",
+  },
+  {
+    id: "05",
+    titleTh: "ผู้เชี่ยวชาญด้าน Oracle AI Vector Search",
+    titleEn: "Oracle AI Vector Search Certified Professional",
+    issuer: "Oracle University",
+    dateTh: "ตุลาคม 2025",
+    dateEn: "October 2025",
+    image: "/portfolio/certificate-oracle-vector-search-2.png",
+  },
+  {
+    id: "06",
+    titleTh: "พื้นฐานปัญญาประดิษฐ์บน Oracle Cloud Infrastructure ประจำปี 2025",
+    titleEn:
+      "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    issuer: "Oracle University",
+    dateTh: "ตุลาคม 2025",
+    dateEn: "October 2025",
+    image: "/portfolio/certificate-oracle-ai-foundations-2.png",
   },
 ] as const;
 
@@ -296,7 +373,18 @@ const projects = {
 
 export default function Home() {
   const [lang, setLang] = useState<Language>("th");
+  const [selectedCertificate, setSelectedCertificate] = useState<
+    (typeof certificates)[number] | null
+  >(null);
+  const certificateTrackRef = useRef<HTMLDivElement>(null);
   const t = copy[lang];
+
+  const scrollCertificates = (direction: -1 | 1) => {
+    certificateTrackRef.current?.scrollBy({
+      left: direction * 360,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <main>
@@ -312,6 +400,7 @@ export default function Home() {
           <a href="#about">{t.nav.about}</a>
           <a href="#education">{t.nav.education}</a>
           <a href="#skills">{t.nav.skills}</a>
+          <a href="#certifications">{t.nav.certifications}</a>
           <a href="#projects">{t.nav.projects}</a>
           <a href="#award">{t.nav.award}</a>
           <a href="#contact">{t.nav.contact}</a>
@@ -555,6 +644,74 @@ export default function Home() {
         </div>
       </section>
 
+      <section
+        className="content-section certifications-section"
+        id="certifications"
+      >
+        <div className="section-shell">
+          <div className="certifications-heading">
+            <div className="section-heading">
+              <p className="eyebrow">{t.certificationsLabel}</p>
+              <h2>{t.certificationsTitle}</h2>
+              <p className="certifications-lead">{t.certificationsLead}</p>
+            </div>
+            <div
+              className="certificate-controls"
+              aria-label="Certificate navigation"
+            >
+              <button
+                type="button"
+                onClick={() => scrollCertificates(-1)}
+                aria-label="Previous certificates"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollCertificates(1)}
+                aria-label="Next certificates"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div className="certificate-track" ref={certificateTrackRef}>
+            {certificates.map((certificate) => {
+              const title =
+                lang === "th" ? certificate.titleTh : certificate.titleEn;
+              const date =
+                lang === "th" ? certificate.dateTh : certificate.dateEn;
+
+              return (
+                <button
+                  className="certificate-card"
+                  type="button"
+                  key={certificate.id}
+                  onClick={() => setSelectedCertificate(certificate)}
+                  aria-label={`${t.viewCertificate}: ${title}`}
+                >
+                  <span className="certificate-image">
+                    <img src={certificate.image} alt={title} />
+                    <span className="certificate-number">{certificate.id}</span>
+                  </span>
+                  <span className="certificate-content">
+                    <span className="certificate-badge">ORACLE CERTIFIED</span>
+                    <strong>{title}</strong>
+                    <small>
+                      {certificate.issuer} · {date}
+                    </small>
+                    <span className="certificate-link">
+                      {t.viewCertificate} <b aria-hidden="true">↗</b>
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <section className="content-section projects-section" id="projects">
         <div className="section-shell">
           <div className="section-heading project-heading">
@@ -688,6 +845,55 @@ export default function Home() {
           <span>{t.footer}</span>
         </div>
       </footer>
+
+      {selectedCertificate && (
+        <div
+          className="certificate-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label={
+            lang === "th"
+              ? selectedCertificate.titleTh
+              : selectedCertificate.titleEn
+          }
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <div
+            className="certificate-modal-content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className="certificate-modal-close"
+              type="button"
+              onClick={() => setSelectedCertificate(null)}
+              aria-label={t.closeCertificate}
+            >
+              ×
+            </button>
+            <img
+              src={selectedCertificate.image}
+              alt={
+                lang === "th"
+                  ? selectedCertificate.titleTh
+                  : selectedCertificate.titleEn
+              }
+            />
+            <div>
+              <strong>
+                {lang === "th"
+                  ? selectedCertificate.titleTh
+                  : selectedCertificate.titleEn}
+              </strong>
+              <span>
+                {selectedCertificate.issuer} ·{" "}
+                {lang === "th"
+                  ? selectedCertificate.dateTh
+                  : selectedCertificate.dateEn}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
